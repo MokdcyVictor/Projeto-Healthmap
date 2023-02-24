@@ -28,6 +28,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "6f4943ea-7082-4448-b7b0-f437ee0568fd"
+      }
+    },
+    "owner": "vmp22"
   }
 }
