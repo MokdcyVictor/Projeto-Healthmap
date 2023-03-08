@@ -2,10 +2,10 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     context: {
-        marginTop:10,
+        marginTop:100,
         backgroundColor:"white",
         width:298,
-        height:400,
+        height:283,
         borderRadius:10,
         alignItems:"center",
 

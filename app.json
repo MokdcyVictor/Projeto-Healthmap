@@ -12,7 +12,8 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/6f4943ea-7082-4448-b7b0-f437ee0568fd"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -34,6 +35,9 @@
         "projectId": "6f4943ea-7082-4448-b7b0-f437ee0568fd"
       }
     },
-    "owner": "vmp22"
+    "owner": "vmp22",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    }
   }
 }
