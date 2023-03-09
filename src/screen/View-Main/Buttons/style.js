@@ -6,6 +6,13 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         padding:10,
     },
+    viewbutton:{
+        alignItems:"center",
+        width:90
+    },
+    textbutton:{
+        color:"white",
+    },
     background:{
         backgroundColor:"#4F88F8",
         width:70,

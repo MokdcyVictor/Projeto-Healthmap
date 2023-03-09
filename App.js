@@ -6,6 +6,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Signin from './src/screen/View-Signin';
 import Main from './src/screen/View-Main';
 import Signup from './src/screen/View-Signup';
+import Map from './src/screen/View-Map';
+import Hospital from './src/screen/View-Hospital';
 
 const Stack = createStackNavigator()
 
@@ -20,6 +22,12 @@ export default function App() {
           headerShown:false
           }}></Stack.Screen>
           <Stack.Screen name="Signup" component={Signup} options={{
+          headerShown:false
+          }}></Stack.Screen>
+          <Stack.Screen name="Map" component={Map} options={{
+          headerShown:false
+          }}></Stack.Screen>
+          <Stack.Screen name="Hospital" component={Hospital} options={{
           headerShown:false
           }}></Stack.Screen>
       </Stack.Navigator>
