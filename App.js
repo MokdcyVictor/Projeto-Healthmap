@@ -8,6 +8,7 @@ import Main from './src/screen/View-Main';
 import Signup from './src/screen/View-Signup';
 import Map from './src/screen/View-Map';
 import Hospital from './src/screen/View-Hospital';
+import Loading from './src/screen/View-Loading';
 
 const Stack = createStackNavigator()
 
@@ -15,8 +16,12 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator InicialRouteName="App">
-        <Stack.Screen name="Signin" component={Signin} options={{
+      <Stack.Screen name="Loading" component={Loading} options={{
           headerShown:false
+          }}></Stack.Screen>
+        <Stack.Screen name="Signin" component={Signin} options={{
+          headerShown:false ,
+          gestureEnabled:false
           }}></Stack.Screen>
           <Stack.Screen name="Main" component={Main} options={{
           headerShown:false

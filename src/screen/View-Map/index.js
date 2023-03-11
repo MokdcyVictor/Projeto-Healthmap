@@ -10,31 +10,30 @@ export default function ViewMap() {
   const navigation = useNavigation();
 
   const [mapRegion, setMapRegion] = useState({
-        latitude: 37.78825,
-        longitude: -122.4324,
+        latitude: -3.10171,
+        longitude: -60.0141,
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421,
   })
 
   const userLocation = async()=>{
-    let {status} = await Location.requestForegroundPermissionsAsync();
-    if (status !== 'granted'){
-      setErrorMsg('permission to accees location was denied')
-    }
-    let location = await Location.getCurrentPositionAsync({enableHighAccuracy:true});
+      let {status} = await Location.requestForegroundPermissionsAsync();
+      if(status !== 'granted'){
+        setErrorMsg('access negado')
+      }
+      let location = await Location.getCurrentPositionAsync({enableHighAcurracy:true});
       setMapRegion({
         latitude: location.coords.latitude,
         longitude: location.coords.longitude,
         latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-
+        longitudeDelta:0.0421,
       })
-      console.log(location.coords.latitude, location.coords.longitude)
-    }
+      console.log(location.coords.latitude,location.coords.longitude)
+    };
 
     useEffect(()=>{
       userLocation();
-    },[])
+    },[]);
 
  return (
     <View style={styles.container}>
@@ -42,8 +41,8 @@ export default function ViewMap() {
         initialRegion={mapRegion}
       >
         <Marker coordinate={{
-        latitude: 37.78825,
-        longitude: -122.4324,
+        latitude: -3.1335556,
+        longitude: -59.9806066,
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421}} title='Marker'
         onPress={()=>{
