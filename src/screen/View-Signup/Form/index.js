@@ -1,48 +1,48 @@
 import React,{useState} from "react"
-import {TouchableOpacity,View,Text,Image, TextInput,Linking} from "react-native"
+import {TouchableOpacity,View,Text,Image, TextInput,Linking, EventSubscriptionVendor} from "react-native"
 import styles from "./style";
-import auth from "../../../../firebase"
+import {firebase} from '../../../../firebase'
 import { useNavigation } from '@react-navigation/native';
 
 
 
 export default function Form (){
-    const [email, setEmail] = useState(null);
-    const [password, setPassword] = useState(null);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [username, setUsername] = useState('');
 
-    const CreateAccount = () =>{
-        auth
-        .createUserWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-          // Signed in
-        const user = userCredential.user;
-        navigation.navigate('Main');
-        alert("success")
-            // ...
+    const registerUser = async (email, password, username) =>{
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then(()=>{
+            firebase.firestore().collection('users')
+            .doc(firebase.auth().currentUser.uid)
+            .set({
+                username,
+            }).catch((error)=>{
+                alert(error.message)
+            })
+            alert("Usuario Cadastrado com Sucesso")
+            navigation.navigate("Signin")
+        }) .catch((error)=>{
+            alert(error.message)
         })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            alert(errorCode)
-    // ..
-    });
-
     }
+
 
     const navigation = useNavigation(); 
 
     return(
         <View style={styles.context}>
-            <TextInput style={styles.Input} multiline={false} placeholder="Digite seu nome"></TextInput>
-                <TextInput onChangeText={(text)=>setEmail(text)} style={styles.Input} multiline={false} placeholder="Informe seu E-mail"></TextInput>
-                <TextInput onChangeText={(text) => setPassword} style={styles.Input} autoCorrect={false} secureTextEntry={true} multiline={false} placeholder="Digite sua senha"></TextInput>
+            <TextInput onChangeText={(username) => setUsername(username)} style={styles.Input} multiline={false} placeholder="Digite seu nome"></TextInput>
+                <TextInput onChangeText={(email)=>setEmail(email)} style={styles.Input} multiline={false} placeholder="Informe seu E-mail"></TextInput>
+                <TextInput onChangeText={(password) => setPassword(password)} style={styles.Input} autoCorrect={false} secureTextEntry={true} multiline={false} placeholder="Digite sua senha"></TextInput>
                 <TextInput style={styles.Input} textContentType='password' autoCorrect={false} secureTextEntry={true} multiline={false} placeholder="confirme sua senha"></TextInput>
                 <Text style={styles.hyperlinkStyle} onPress={() => { 
                                                     navigation.navigate('Signin')
                                                     }}> 
                                                         Esqueceu a senha?
                 </Text> 
-                <TouchableOpacity onPress={()=>{CreateAccount()}} style={styles.Button}><Text style={styles.textButton}>Entrar</Text></TouchableOpacity>
+                <TouchableOpacity onPress={()=>{registerUser(email,password,username)}} style={styles.Button}><Text style={styles.textButton}>Entrar</Text></TouchableOpacity>
                 <Text style={styles.textmedio}>ou</Text>
                 <View>
                 </View>
