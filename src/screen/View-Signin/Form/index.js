@@ -3,6 +3,7 @@ import {TouchableOpacity,View,Text,Image, TextInput,Linking, BackHandler} from "
 import styles from "./style";
 import { useNavigation } from '@react-navigation/native';
 import { firebase } from "../../../../firebase";
+import Tabs from "../../../../navigation/tabs";
 
 export default function Form (){
     const [email, setEmail] = useState('');
@@ -11,7 +12,7 @@ export default function Form (){
     const loginUser  = async (email, password) =>{
         try{
             await firebase.auth().signInWithEmailAndPassword(email.trim(), password.trim())
-            navigation.navigate('Main')
+            navigation.navigate('Tabs')
         } catch (error){
             alert(error.message)
         }

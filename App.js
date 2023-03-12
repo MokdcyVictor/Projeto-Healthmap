@@ -9,6 +9,7 @@ import Signup from './src/screen/View-Signup';
 import Map from './src/screen/View-Map';
 import Hospital from './src/screen/View-Hospital';
 import Loading from './src/screen/View-Loading';
+import Tabs from './navigation/tabs';
 
 const Stack = createStackNavigator()
 
@@ -23,12 +24,10 @@ export default function App() {
           headerShown:false ,
           gestureEnabled:false
           }}></Stack.Screen>
-          <Stack.Screen name="Main" component={Main} options={{
-          headerShown:false
-          }}></Stack.Screen>
           <Stack.Screen name="Signup" component={Signup} options={{
           headerShown:false
           }}></Stack.Screen>
+          <Stack.Screen name='Tabs' component={Tabs} options={{headerShown:false}}></Stack.Screen>
           <Stack.Screen name="Map" component={Map} options={{
           headerShown:false
           }}></Stack.Screen>
