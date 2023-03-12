@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     },
     textContent:{
         marginLeft:5,
-        width:50,
+        width:'auto',
         height:40,
 
     },
