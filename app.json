@@ -33,7 +33,7 @@
       "package": "com.vmp22.projetohealthmap"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/logo.png"
     },
     "extra": {
       "eas": {
