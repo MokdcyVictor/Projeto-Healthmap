@@ -22,7 +22,6 @@ export default function App() {
           }}></Stack.Screen>
         <Stack.Screen name="Signin" component={Signin} options={{
           headerShown:false ,
-          gestureEnabled:false
           }}></Stack.Screen>
           <Stack.Screen name="Signup" component={Signup} options={{
           headerShown:false
