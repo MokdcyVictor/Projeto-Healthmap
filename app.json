@@ -1,0 +1,49 @@
+{
+  "expo": {
+    "name": "projeto-healthmap",
+    "slug": "projeto-healthmap",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/logo.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/6f4943ea-7082-4448-b7b0-f437ee0568fd"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yourcompany.yourappname", 
+      "buildNumber": "1.0.0" 
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logo.png",
+        "backgroundColor": "#FFFFFF",
+        "package": "com.vmp22.projetohealthmap;",
+        "versionCode": 1,
+        "googleServicesFile": "./google-services.json"
+      },
+      "package": "com.vmp22.projetohealthmap"
+    },
+    "web": {
+      "favicon": "./assets/logo.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "6f4943ea-7082-4448-b7b0-f437ee0568fd"
+      }
+    },
+    "owner": "vmp22",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    }
+  }
+}
