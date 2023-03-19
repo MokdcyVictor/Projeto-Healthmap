@@ -20,7 +20,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.yourcompany.yourappname", 
+      "bundleIdentifier": "com.vmp22.projetohealthmap", 
       "buildNumber": "1.0.0" 
     },
     "android": {
@@ -29,7 +29,12 @@
         "backgroundColor": "#FFFFFF",
         "package": "com.vmp22.projetohealthmap;",
         "versionCode": 1,
-        "googleServicesFile": "./google-services.json"
+        "googleServicesFile": "./google-services.json",
+        "config":{
+          "googleMaps":{
+            "apiKey": "AIzaSyB3kkbGzN__pubmga6s0da2Eay2BDV4k2A"
+          }
+        }
       },
       "package": "com.vmp22.projetohealthmap"
     },

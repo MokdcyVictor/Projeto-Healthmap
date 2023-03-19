@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Button,Text, BackHandler, TouchableOpacity, Image } from 'react-native';
-import MapView, {Marker} from 'react-native-maps';
+import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import * as Location from 'expo-location';
 import styles from './style';
 import { useNavigation } from '@react-navigation/native';
@@ -37,20 +37,22 @@ export default function ViewMap() {
 
  return (
     <View style={styles.container}>
-      <MapView style={styles.map} 
+      <MapView 
+        provider={PROVIDER_GOOGLE}
+        style={styles.map} 
         initialRegion={mapRegion}
         loadingEnabled
         showsUserLocation
       >
         
-        {/* <Marker coordinate={{
+       <Marker coordinate={{
         latitude: -3.101582340298086,
         longitude:  -60.01413263166075,
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421}} title='Marker'
         onPress={()=>{
           navigation.navigate('Hospital', {id:"99aurx0psKEZu9Y3IP1z", img:'https://firebasestorage.googleapis.com/v0/b/projeto-healthmap.appspot.com/o/ubs%2Fhospital.jpg?alt=media&token=0f5e7154-0a46-4408-828c-9408ba0a9501'})
-        }}></Marker> */}
+        }}></Marker> 
         <Marker coordinate={{
         latitude: -3.0767412,
         longitude: -59.9547822,
@@ -68,8 +70,8 @@ export default function ViewMap() {
           navigation.navigate('Hospital', {id:"Pvd135QMqku2TZbJcZz6", img:'https://firebasestorage.googleapis.com/v0/b/projeto-healthmap.appspot.com/o/ubs%2FBalbinaMestrinho.jpg?alt=media&token=ba1b1203-51c2-4ed2-b1fa-8163eaa0f959'})
         }}></Marker>
         <Marker coordinate={{
-        latitude: -3.05913,
-        longitude: -59.84499,
+        latitude: -3.0385201,
+        longitude: -59.9435218,
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421}} title='Marker'
         onPress={()=>{
