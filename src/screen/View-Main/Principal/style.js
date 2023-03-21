@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
     background:{
         backgroundColor:"white",
         width:"100%",
-        height:"55%",
+        height:"auto",
         borderRadius:20,
     },
     ballscontent:{
@@ -37,10 +37,14 @@ const styles = StyleSheet.create({
         backgroundColor:"#D9D9D9",
         marginTop:20,
         width:300,
-        height:100,
+        height:200,
         borderRadius:20,
         alignSelf:"center"
-    }
+    },
+    map: {
+        width: '100%',
+        height: '100%',
+      },
 });
 
 export default styles

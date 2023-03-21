@@ -8,6 +8,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Title from "./Title/index"
 import Buttons from "./Buttons/index"
 import Principal from "./Principal/index"
+import { ScrollView } from "react-native-gesture-handler";
 
 
 const Tab = createBottomTabNavigator();
@@ -15,8 +16,10 @@ const Tab = createBottomTabNavigator();
 export default function Main (){
     return(
         <View style={styles.background}>
-            <Title />
-            <Buttons />
-            <Principal />
+            <ScrollView>
+                <Title />
+                <Buttons />
+                <Principal />
+            </ScrollView>
         </View>
 )}
