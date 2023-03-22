@@ -1,11 +1,12 @@
-import React from "react"
-import {View,Text,Image,Linking} from "react-native"
+import {React, useEffect} from "react"
+import {View,Text,Image,Linking, BackHandler} from "react-native"
 import styles from "./style";
 import Form from "./Form";
 import Title from "./Title";
 
 
 export default function Signin ({navigation}){
+        
     return(
         <View style={styles.linearGradient}>
             <Title/>

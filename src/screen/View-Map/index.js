@@ -7,6 +7,13 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function ViewMap() {
 
+  useEffect(()=>{
+    BackHandler.addEventListener('hardwareBackPress', () =>{
+        return true
+    })
+},[])
+
+
   const navigation = useNavigation();
 
   const [mapRegion, setMapRegion] = useState({

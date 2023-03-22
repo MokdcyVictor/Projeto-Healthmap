@@ -5,8 +5,11 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor:"#3173F3",
         alignItems:"center",
-
+        marginTop:'10%',
       },
+      scroll:{
+        height:'200%',
+      }
 });
 
 export default styles
