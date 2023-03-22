@@ -37,11 +37,13 @@ const styles = StyleSheet.create({
         width:300,
         height:200,
         borderRadius:20,
-        alignSelf:"center"
+        alignSelf:"center",
+        marginBottom:'10%',
     },
     map: {
         width: '100%',
-        height: '100%',
+        height: '50%',
+        marginBottom:'5%',
       },
 });
 

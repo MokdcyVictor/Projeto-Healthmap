@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "478984670151",
+    "firebase_url": "https://projeto-healthmap-default-rtdb.firebaseio.com",
+    "project_id": "projeto-healthmap",
+    "storage_bucket": "projeto-healthmap.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:478984670151:android:8b1b43ab2d267fe78967e2",
+        "android_client_info": {
+          "package_name": "com.vmp22.projetohealthmap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "478984670151-5ahfl2u5696758nve08gtmm622o3v153.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vmp22.projetohealthmap",
+            "certificate_hash": "8f4b526b6dbe77ac8db501da72c8cde2b435eeff"
+          }
+        },
+        {
+          "client_id": "478984670151-2l4gl5dkp0h2ok1c7m0cnf6vd6tf2st4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJygcFyDfkaFM6ha86suXsOXfD_AaXizA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "478984670151-1hsg9thl8sv0sl66bjn9s9ndet1srhb5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -16,8 +16,11 @@ const Tab = createBottomTabNavigator();
 export default function Main (){
     return(
         <View style={styles.background}>
+        <ScrollView style={styles.scroll}>
                 <Title />
                 <Buttons />
                 <Principal />
+        </ScrollView>
+                
         </View>
 )}

@@ -93,7 +93,6 @@ export default function ViewMap() {
           navigation.navigate('Hospital', {id:"e1kCidi1o9P5aFeq8wMw", img:'https://firebasestorage.googleapis.com/v0/b/projeto-healthmap.appspot.com/o/ubs%2Fplat%C3%A3oaraujo.jpg?alt=media&token=8ad8ea11-61df-49f6-af8d-c64d5b83251d://firebasestorage.googleapis.com/v0/b/projeto-healthmap.appspot.com/o/ubs%2FBalbinaMestrinho.jpg?alt=media&token=ba1b1203-51c2-4ed2-b1fa-8163eaa0f959'})
         }}></Marker>
       </MapView>
-      <Button title='get location' onPress={userLocation}></Button>
   </View>
   );
 }

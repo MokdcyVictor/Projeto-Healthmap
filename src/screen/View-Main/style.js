@@ -6,10 +6,8 @@ const styles = StyleSheet.create({
         backgroundColor:"#3173F3",
         alignItems:"center",
         marginTop:'10%',
+        marginBottom:'18%',
       },
-      scroll:{
-        height:'200%',
-      }
 });
 
 export default styles

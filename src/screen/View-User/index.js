@@ -29,7 +29,7 @@ export default function ViewUser() {
     const response = await fetch(image.uri)
     const blob = await response.blob()
     const filename = image.uri.substring(image.uri.lastIndexOf('/')+1)
-    var ref = firebase.storage().ref().child(filename).put(blob)
+    var ref = firebase.storage().ref("users").child(filename).put(blob)
 
     try{
       await ref
@@ -55,6 +55,9 @@ export default function ViewUser() {
  return (
    <View style={styles.container}>
     {image && <Image source={{uri: image.uri}} style={{width: 300, height:300}}></Image>}
+    <TouchableOpacity>
+      <Image source={require('./image/personedit.png')}></Image>
+    </TouchableOpacity>
     <Text>Email: {firebase.auth().currentUser.email} </Text>
     <TouchableOpacity onPress={Signout} style={styles.button}><Text style={styles.buttonText}>Sign out</Text></TouchableOpacity>
    </View>

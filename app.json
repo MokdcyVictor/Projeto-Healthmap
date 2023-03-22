@@ -1,5 +1,6 @@
 {
   "expo": {
+    "plugins": ["@react-native-google-signin/google-signin"],
     "name": "projeto-healthmap",
     "slug": "projeto-healthmap",
     "version": "1.0.0",
@@ -21,6 +22,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.vmp22.projetohealthmap", 
+      "googleServicesFile": "./GoogleService-Info.plist",
       "buildNumber": "1.0.0" 
     },
     "android": {
