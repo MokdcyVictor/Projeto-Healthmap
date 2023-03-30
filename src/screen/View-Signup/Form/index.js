@@ -18,6 +18,9 @@ export default function Form (){
             .doc(firebase.auth().currentUser.uid)
             .set({
                 username,
+                email,
+                password,
+                
             }).catch((error)=>{
                 alert(error.message)
             })

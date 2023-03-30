@@ -20,12 +20,8 @@ export default function Buttons() {
       <Text style={styles.textbutton}>Categorias</Text>
     </View>
     <View style={styles.viewbutton}>
-      <TouchableOpacity style={styles.background}><Image source={require('./image/star.png')}></Image></TouchableOpacity>
-      <Text style={styles.textbutton}>Cartão de vacinas</Text>
-    </View>
-    <View style={styles.viewbutton}>
-      <TouchableOpacity style={styles.background}><Image source={require('./image/card.png')}></Image></TouchableOpacity>
-      <Text style={styles.textbutton}>Favoritos</Text>
+      <TouchableOpacity style={styles.background}><Image source={require('./image/error.png')}></Image></TouchableOpacity>
+      <Text style={styles.textbutton}>Emergência</Text>
     </View>
    </View>
   );

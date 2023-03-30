@@ -5,10 +5,13 @@ const styles = StyleSheet.create({
     view:{
         flexDirection:"row",
         padding:10,
+        alignItems:"center",
+        justifyContent:"center",
     },
     viewbutton:{
         alignItems:"center",
-        width:90
+        width:90,
+        marginHorizontal:10,
     },
     textbutton:{
         color:"white",

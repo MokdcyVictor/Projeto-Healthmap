@@ -21,7 +21,7 @@ export default function description({parentToChild}) {
 
  return (
    <View style={styles.background}>
-    <Text style={styles.text}>{info.nome}</Text>
+
     <View style={styles.information}>
       <Text>{info.endereço}</Text>
       <Text>{info.contato}</Text>

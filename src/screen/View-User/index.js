@@ -3,7 +3,7 @@ import { TouchableOpacity, View, Text, Alert } from 'react-native';
 import styles from './style';
 import {firebase} from '../../../firebase';
 import { useNavigation } from '@react-navigation/native';
-import * as ImagePicker from 'expo-image-picker'
+import * as ImagePicker from 'expo-image-picker';
 
 export default function ViewUser() {
   const [image, setImage] = useState(null)
@@ -54,10 +54,6 @@ export default function ViewUser() {
 
  return (
    <View style={styles.container}>
-    {image && <Image source={{uri: image.uri}} style={{width: 300, height:300}}></Image>}
-    <TouchableOpacity>
-      <Image source={require('./image/personedit.png')}></Image>
-    </TouchableOpacity>
     <Text>Email: {firebase.auth().currentUser.email} </Text>
     <TouchableOpacity onPress={Signout} style={styles.button}><Text style={styles.buttonText}>Sign out</Text></TouchableOpacity>
    </View>

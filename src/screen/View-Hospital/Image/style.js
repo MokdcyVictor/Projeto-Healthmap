@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
         alignItems:"center"
     },
     img:{
-        borderRadius:100,
         width:150,
         height:150,
         marginTop:50,

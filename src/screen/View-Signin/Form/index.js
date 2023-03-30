@@ -28,11 +28,6 @@ export default function Form (){
         }
     }
 
-    useEffect(()=>{
-        BackHandler.addEventListener('hardwareBackPress', () =>{
-            return true
-        })
-    },[])
 
 
     const navigation = useNavigation(); 

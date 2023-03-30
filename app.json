@@ -8,7 +8,7 @@
     "icon": "./assets/logo.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/Splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -34,7 +34,7 @@
         "googleServicesFile": "./google-services.json",
         "config":{
           "googleMaps":{
-            "apiKey": "AIzaSyB3kkbGzN__pubmga6s0da2Eay2BDV4k2A"
+            "apiKey": "AIzaSyA8CacWIcuRyXRNaxQ6fjvxQUQny429Ug8"
           }
         }
       },
