@@ -26,8 +26,9 @@ const styles = StyleSheet.create({
     },
     logo:{
         justifyContent:'flex-end',
-        width:'30%',
-        height:'20%'
+        alignItems:'flex-end',
+        width:'40%',
+        height:'30%',
     }
 });
 

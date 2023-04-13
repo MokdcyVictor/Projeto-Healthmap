@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
         backgroundColor:"white",
         width:"100%",
         height:"auto",
-        borderRadius:20,
+        borderRadius:0,
     },
     ballscontent:{
         flexDirection:"row",
