@@ -12,6 +12,8 @@ const styles = StyleSheet.create({
         height:'auto',
     },
     text:{
+        fontSize:20,
+        fontWeight:'bold',
         color:"white",
         marginLeft:10,
         width:'50%',

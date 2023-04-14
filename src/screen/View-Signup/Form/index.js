@@ -12,7 +12,7 @@ export default function Form (){
     const [username, setUsername] = useState('');
 
     const registerUser = async (email, password, username) =>{
-        firebase.auth().createUserWithEmailAndPassword(email, password)
+        firebase.auth().createUserWithEmailAndPassword(email.trim(), password.trim())
         .then(()=>{
             firebase.firestore().collection('users')
             .doc(firebase.auth().currentUser.uid)
