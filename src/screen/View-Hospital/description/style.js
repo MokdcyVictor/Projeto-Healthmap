@@ -5,9 +5,10 @@ const styles = StyleSheet.create({
     background:{
         backgroundColor:"white",
         width:"100%",
-        height:"80%",
-        alignItems:"center",
-        marginTop:0,
+        height:"auto",
+        alignItems:'center',
+        borderTopLeftRadius:10,
+        borderTopRightRadius:10,
     },
     buttom:{
         backgroundColor:"#3173F3",
@@ -28,7 +29,8 @@ const styles = StyleSheet.create({
     },
     information:{
         marginTop:30,
-
+        margin:40,
+        alignItems:'flex-start',
     }
 });
 

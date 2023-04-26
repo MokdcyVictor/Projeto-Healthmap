@@ -1,11 +1,23 @@
-import React, { useEffect } from 'react';
-import { View,Image } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import React, { useEffect,useState } from 'react';
+import { View,Image,Text,TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import styles from './style';
 import firebase from '../../../../firebase';
 
 export default function Img({parentToChild}) {
+  const [info, setInfo] = useState('');
+  useEffect(()=>{
+    firebase.firestore().collection('ubs').doc(parentToChild).get().then((doc)=>{
+      if(doc.exists){
+        setInfo(doc.data())
+      }
+      else{
+        console.log("No such document")
+      }
+    }).catch((error)=>{
+      console.log("error getting doument:", error)
+    })
+  })
 
   const navigation = useNavigation();
 
@@ -13,10 +25,9 @@ export default function Img({parentToChild}) {
 
  return (
    <View style={styles.background}>
-    <View style={styles.container}>
-    <TouchableOpacity onPress={()=>{navigation.goBack()}} ><Image style={styles.return} source={require('./retornar.png')}></Image></TouchableOpacity>
-    </View>
-    <Image style={styles.img} source={{uri:img}}></Image>
+      <Image style={styles.img} source={{uri:img}}></Image>
+      <TouchableOpacity onPress={()=>{navigation.goBack()}} ><Image style={styles.return} source={require('./retornar.png')}></Image></TouchableOpacity>
+      <Text style={{color:'white', padding:6, fontSize:30, fontWeight:'bold',alignSelf:'center',justifyContent:'flex-end'}}>{info.nome}</Text>
    </View>
   );
 }

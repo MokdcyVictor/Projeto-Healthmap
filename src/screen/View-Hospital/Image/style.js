@@ -2,20 +2,24 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     background:{
-        borderRadius:"50%",
-        alignItems:"center"
+        height:200,
+        paddingBottom:5,
+        justifyContent:'space-between',
     },
     img:{
-        width:150,
-        height:150,
-        marginTop:50,
+        position:'absolute',
+        left:0,
+        right:0,
+        top:0,
+        bottom:0,
+        resizeMode:'cover',
+        width:'100%',
+        height: 'auto',
     },
     return:{
         width:50,
-        justifyContent:'flex-start',
-        marginRight:300,
-        marginTop:10,
-        color:'white',
+        padding:6,
+        alignSelf:'flex-start',
     },
     container:{
         width:'100%',

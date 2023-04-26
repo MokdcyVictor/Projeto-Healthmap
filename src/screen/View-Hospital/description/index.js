@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { View, Text,Image,TouchableOpacity } from 'react-native';
 import styles from './style';
 import {firebase} from '../../../../firebase';
 
@@ -23,9 +22,26 @@ export default function description({parentToChild}) {
    <View style={styles.background}>
 
     <View style={styles.information}>
-      <Text>{info.endereço}</Text>
-      <Text>{info.contato}</Text>
-      <Text>{info.Funcionamento}</Text>
+      <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center', marginBottom:20}}>
+        <Image source={require('../Image/map-pin.png')} style={{width:20, height:20,margin:5}}></Image>
+        <Text>{info.endereço}</Text>
+      </View>
+      <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center',marginBottom:20}}>
+        <Image source={require('../Image/clock.png')} style={{width:20, height:20,margin:5}}></Image>
+        <Text>{info.Funcionamento}</Text>
+      </View>
+      <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center',marginBottom:20}}>
+        <Image source={require('../Image/globe.png')} style={{width:20, height:20,margin:5}}></Image>
+        <Text>{info.contato}</Text>
+      </View>
+      <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center',marginBottom:20}}>
+        <Image source={require('../Image/globe.png')} style={{width:20, height:20,margin:5}}></Image>
+        <Text>{info.contato}</Text>
+      </View>
+      <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center',marginBottom:20}}>
+        <Image source={require('../Image/globe.png')} style={{width:20, height:20,margin:5}}></Image>
+        <Text>{info.contato}</Text>
+      </View>
     </View>
     <TouchableOpacity style={styles.buttom}><Text style={styles.textButton}>Rotas</Text></TouchableOpacity>
    </View>
