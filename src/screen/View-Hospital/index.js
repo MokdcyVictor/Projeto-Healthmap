@@ -4,17 +4,21 @@ import styles from './style';
 
 import Description from './description';
 import Img from './Image/index'
+import Services from './services';
 
 export default function ViewHospital({route}) {
   
-  const img = route.params?.img;
- const id = route.params?.id;
- console.log(id)
+  const state = {
+    id : route.params?.id,
+    img : route.params?.img
+  }
+
 
   return ( 
     <View style={styles.background}>
-        <Img parentToChild={img}></Img>
-        <Description parentToChild={id}></Description>
+        <Img parentToChild={state}></Img>
+        <Services/>
+        <Description parentToChild={state}></Description>
     </View>
     
   );

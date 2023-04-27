@@ -1,18 +1,16 @@
-import { StyleSheet } from "react-native";
-import { AlignJustify } from "react-native-feather";
+import { StyleSheet,useWindowDimensions } from "react-native";
+
 
 const styles = StyleSheet.create({
     background:{
+        paddingTop:20,
         backgroundColor:"white",
         width:"100%",
-        height:"auto",
-        alignItems:'center',
-        borderTopLeftRadius:10,
-        borderTopRightRadius:10,
+        height:"100%",
+        alignItems:'baseline',
     },
     buttom:{
         backgroundColor:"#3173F3",
-        marginTop:150,
         borderRadius:30,
         width:300,
         height:50,
@@ -28,8 +26,7 @@ const styles = StyleSheet.create({
         fontSize:40,
     },
     information:{
-        marginTop:30,
-        margin:40,
+        marginHorizontal:30,
         alignItems:'flex-start',
     }
 });

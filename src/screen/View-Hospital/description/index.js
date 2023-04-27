@@ -6,7 +6,7 @@ import {firebase} from '../../../../firebase';
 export default function description({parentToChild}) {
   const [info, setInfo] = useState('');
   useEffect(()=>{
-    firebase.firestore().collection('ubs').doc(parentToChild).get().then((doc)=>{
+    firebase.firestore().collection('ubs').doc(parentToChild.id).get().then((doc)=>{
       if(doc.exists){
         setInfo(doc.data())
       }
@@ -35,11 +35,11 @@ export default function description({parentToChild}) {
         <Text>{info.contato}</Text>
       </View>
       <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center',marginBottom:20}}>
-        <Image source={require('../Image/globe.png')} style={{width:20, height:20,margin:5}}></Image>
+        <Image source={require('../Image/phone.png')} style={{width:20, height:20,margin:5}}></Image>
         <Text>{info.contato}</Text>
       </View>
       <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center',marginBottom:20}}>
-        <Image source={require('../Image/globe.png')} style={{width:20, height:20,margin:5}}></Image>
+        <Image source={require('../Image/bus.png')} style={{width:20, height:20,margin:5}}></Image>
         <Text>{info.contato}</Text>
       </View>
     </View>

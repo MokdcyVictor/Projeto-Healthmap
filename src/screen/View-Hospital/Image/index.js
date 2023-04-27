@@ -2,12 +2,12 @@ import React, { useEffect,useState } from 'react';
 import { View,Image,Text,TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import styles from './style';
-import firebase from '../../../../firebase';
+import {firebase} from '../../../../firebase';
 
 export default function Img({parentToChild}) {
   const [info, setInfo] = useState('');
   useEffect(()=>{
-    firebase.firestore().collection('ubs').doc(parentToChild).get().then((doc)=>{
+    firebase.firestore().collection('ubs').doc(parentToChild.id).get().then((doc)=>{
       if(doc.exists){
         setInfo(doc.data())
       }
@@ -19,9 +19,10 @@ export default function Img({parentToChild}) {
     })
   })
 
+
   const navigation = useNavigation();
 
-  const img = parentToChild
+  const img = parentToChild.img
 
  return (
    <View style={styles.background}>
