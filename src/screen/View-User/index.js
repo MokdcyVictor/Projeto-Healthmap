@@ -1,30 +1,39 @@
-import React, { useState } from 'react';
-import { TouchableOpacity, View, Text, Alert } from 'react-native';
+import React, { useState,useEffect } from 'react';
+import { TouchableOpacity, View, Text, Image } from 'react-native';
 import styles from './style';
 import {firebase} from '../../../firebase';
 import { useNavigation } from '@react-navigation/native';
-import * as ImagePicker from 'expo-image-picker';
 
 export default function ViewUser() {
   const [image, setImage] = useState(null)
   const [uploading, setUploading] = useState(false)
 
   const navigation = useNavigation(); 
+  const [name, setName] = useState('')
 
+  useEffect(()=>{
+    firebase.firestore().collection('users')
+    .doc(firebase.auth().currentUser.uid).get()
+    .then((snapshot) =>{
+      if(snapshot.exists){
+        setName(snapshot.data())
+      } else{
+        console.log('user does not exist')
+      }
+    })
+  })
 
-  const Signout = () =>{
-    firebase.auth()
-      .signOut()
-      .then(()=>{
-        navigation.replace('Signin')
-      })
-      .catch((error)=> alert(error.message))
-  }
 
  return (
    <View style={styles.container}>
-    <Text>Email: {firebase.auth().currentUser.email} </Text>
-    <TouchableOpacity onPress={Signout} style={styles.button}><Text style={styles.buttonText}>Sign out</Text></TouchableOpacity>
+    <View style={{width:'100%', height:'40%',alignItems:'flex-end'}}>
+      <Image style={{width:100,height:50,margin:20}} source={require('./image/logo.png')}></Image>
+    </View>
+    <View style={{backgroundColor:'white', width:'100%', height:'60%', borderTopLeftRadius:10, borderTopRightRadius:10, alignItems:'center',}}>
+      <Image style={{width:150,height:150,marginTop:-100}} source={require('./image/avatar.png')}></Image>
+      <Text style={{marginTop:20,fontSize:20,}}>{name.username}</Text>
+        <TouchableOpacity style={{width:'80%',height:50, borderColor:'#3173F3',borderWidth:2,borderRadius:30, alignItems:'center', justifyContent:'center',marginTop:120}}><Text style={{color:'#3173F3', fontSize:15,}}>Editar Perfil</Text></TouchableOpacity>
+    </View>
    </View>
   );
 }

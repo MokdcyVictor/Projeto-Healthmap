@@ -39,21 +39,11 @@ useEffect(()=>{
     
  return (
    <View style={styles.background }>
-    <View style={styles.Input}>
-        <TextInput></TextInput>
-        <Image source={require('../image/search.svg')}></Image>
-    </View>
-    <View style={styles.ballscontent}>
-        <TouchableOpacity style={styles.balls}>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.balls}></TouchableOpacity>
-        <TouchableOpacity style={styles.balls}></TouchableOpacity>
-        <TouchableOpacity style={styles.balls}></TouchableOpacity>
-    </View>
-
-    <Text style={styles.text}>Você está aqui</Text>
-    <View style={styles.location}>
-      <ViewMap></ViewMap>
+    <View>
+      <View>
+        <Text>Hospital</Text>
+        <Image></Image>
+      </View>
     </View>
    </View>
   );
