@@ -9,8 +9,12 @@ import {
   TextInput,
 } from "react-native";
 import styles from "./style";
+import { useNavigation } from "@react-navigation/native";
 
-export default function Principal({ Navigation }) {
+export default function Principal() {
+
+  const navigation = useNavigation();
+  
   return (
     <View style={styles.background}>
       <View
@@ -23,11 +27,16 @@ export default function Principal({ Navigation }) {
           borderRadius: 15,
           marginBottom: 40,
           borderBottomWidth: 2,
-          borderBottomColor: "gray",
+          borderBottomColor: "#CCCCCC",
         }}
       >
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-          <TouchableOpacity style={{ padding: 15, alignItems: "center" }}>
+          <TouchableOpacity
+            style={{ padding: 15, alignItems: "center" }}
+            onPress={() => {
+              navigation.navigate("FlatList");
+            }}
+          >
             <Image
               style={styles.img}
               source={require("../image/hospital.png")}

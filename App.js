@@ -10,6 +10,7 @@ import Map from './src/screen/View-Map';
 import Hospital from './src/screen/View-Hospital';
 import Loading from './src/screen/View-Loading';
 import Tabs from './navigation/tabs';
+import FlatList from './src/screen/View-FlatList';
 
 const Stack = createStackNavigator()
 
@@ -32,6 +33,9 @@ export default function App() {
           headerShown:false
           }}></Stack.Screen>
           <Stack.Screen name="Hospital" component={Hospital} options={{
+          headerShown:false
+          }}></Stack.Screen>
+          <Stack.Screen name="FlatList" component={FlatList} options={{
           headerShown:false
           }}></Stack.Screen>
       </Stack.Navigator>
