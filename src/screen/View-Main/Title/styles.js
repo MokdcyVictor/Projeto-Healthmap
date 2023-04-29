@@ -4,12 +4,10 @@ import { BorderlessButton } from "react-native-gesture-handler";
 const styles = StyleSheet.create({
     background:{
         flexDirection:"row",
-        alignItems:"center",
-        padding:20,
-        borderBottomColor:"#1E54BD",
-        borderBottomWidth:2,
+        paddingHorizontal:15,
         width:'100%',
-        height:'auto',
+        height:180,
+        marginTop:20,
     },
     text:{
         fontSize:20,
@@ -21,13 +19,14 @@ const styles = StyleSheet.create({
     },
     perfil:{
         justifyContent:'flex-start',
+        alignItems:'flex-start',
         backgroundColor:"#D9D9D9",
         borderRadius:40,
         width:40,
         height:40,
     },
     logo:{
-        justifyContent:'flex-end',
+        justifyContent:'flex-start',
         alignItems:'flex-end',
         width:'40%',
         height:'30%',

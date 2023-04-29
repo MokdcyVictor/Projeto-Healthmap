@@ -4,47 +4,30 @@ const styles = StyleSheet.create({
     background:{
         backgroundColor:"white",
         width:"100%",
-        height:"auto",
-        borderRadius:0,
+        height:1000,
     },
-    ballscontent:{
-        flexDirection:"row",
-        alignItems:"center",
-
+    top:{
+        flexDirection:'row',
+        justifyContent:'space-between',
+        marginHorizontal:20,
     },
-    Input:{
-        marginTop:30,
-        padding:10,
-        margin:10,
-        flexDirection:"row",
-        alignItems:"center",
-        justifyContent:"space-between",
-        borderRadius:20,
-        backgroundColor:"#D9D9D9",
-    },
-    balls:{
-        backgroundColor:"#D9D9D9",
-        width:50,
-        height:50,
-        borderRadius:100,
+    conteudo:{
+        width:200,
+        height:100,
+        borderRadius:15,
         margin:20,
+        borderWidth:1,
+        borderColor:'#CCCCCC',
     },
-    text:{
-        marginLeft:20,
-        marginTop:20,
+    img:{
+        width:40,
+        height:40
     },
-    location:{
-        width:300,
-        height:200,
-        borderRadius:20,
-        alignSelf:"center",
-        marginBottom:'10%',
-    },
-    map: {
-        width: '100%',
-        height: '50%',
-        marginBottom:'5%',
-      },
+    txt:{
+        color:'#3173F3',
+        fontSize:12,
+        textAlign:'center'
+    }
 });
 
 export default styles
