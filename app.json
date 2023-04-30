@@ -20,24 +20,26 @@
     ],
     "ios": {
       "supportsTablet": true,
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-xxxxxx"
+      },
       "bundleIdentifier": "com.vmp22.projetohealthmap", 
       "googleServicesFile": "./GoogleService-Info.plist",
       "buildNumber": "1.0.0" 
     },
     "android": {
+      "package": "com.vmp22.projetohealthmap",
+      "versionCode": 1,
+      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/logo.png",
-        "backgroundColor": "#FFFFFF",
-        "package": "com.vmp22.projetohealthmap;",
-        "versionCode": 1,
-        "googleServicesFile": "./google-services.json",
-        "config":{
-          "googleMaps":{
-            "apiKey": "AIzaSyCwnTT1KzWMwlblFsSQeRZkvNB8cEo5EqM"
-          }
-        }
+        "backgroundColor": "#FFFFFF"
       },
-      "package": "com.vmp22.projetohealthmap"
+      "config":{
+        "googleMaps":{
+          "apiKey": "AIzaSyCJaHdU1kC3CwIPzDCw75qrhtO8KB0AgE0"
+        }
+      }
     },
     "web": {
       "favicon": "./assets/logo.png"

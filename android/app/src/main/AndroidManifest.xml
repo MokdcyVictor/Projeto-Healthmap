@@ -21,7 +21,7 @@
     <meta-data android:name="expo.modules.updates.EXPO_UPDATES_CHECK_ON_LAUNCH" android:value="ALWAYS"/>
     <meta-data android:name="expo.modules.updates.EXPO_UPDATES_LAUNCH_WAIT_MS" android:value="0"/>
     <meta-data android:name="expo.modules.updates.EXPO_UPDATE_URL" android:value="https://u.expo.dev/6f4943ea-7082-4448-b7b0-f437ee0568fd"/>
-    <meta-data android:name="com.google.android.geo.AIzaSyB3kkbGzN__pubmga6s0da2Eay2BDV4k2A" android:value="AIzaSyB3kkbGzN__pubmga6s0da2Eay2BDV4k2A"/>
+    <meta-data android:name="com.google.android.geo.AIzaSyCJaHdU1kC3CwIPzDCw75qrhtO8KB0AgE0" android:value="AIzaSyCJaHdU1kC3CwIPzDCw75qrhtO8KB0AgE0"/>
     <activity android:name=".MainActivity" android:label="@string/app_name" android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode" android:launchMode="singleTask" android:windowSoftInputMode="adjustResize" android:theme="@style/Theme.App.SplashScreen" android:exported="true" android:screenOrientation="portrait">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>

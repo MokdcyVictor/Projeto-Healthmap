@@ -39,7 +39,7 @@ export default function Principal() {
           >
             <Image
               style={styles.img}
-              source={require("../image/hospital.png")}
+              source={require("../image/icon-hospital.png")}
             ></Image>
             <Text style={styles.txt}>Hospitais</Text>
           </TouchableOpacity>
