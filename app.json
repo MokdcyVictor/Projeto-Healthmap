@@ -23,9 +23,9 @@
       "config": {
         "googleMobileAdsAppId": "ca-app-pub-xxxxxx"
       },
-      "bundleIdentifier": "com.vmp22.projetohealthmap", 
+      "bundleIdentifier": "com.vmp22.projetohealthmap",
       "googleServicesFile": "./GoogleService-Info.plist",
-      "buildNumber": "1.0.0" 
+      "buildNumber": "1.0.0"
     },
     "android": {
       "package": "com.vmp22.projetohealthmap",
@@ -35,23 +35,28 @@
         "foregroundImage": "./assets/logo.png",
         "backgroundColor": "#FFFFFF"
       },
-      "config":{
-        "googleMaps":{
+      "config": {
+        "googleMaps": {
           "apiKey": "AIzaSyCJaHdU1kC3CwIPzDCw75qrhtO8KB0AgE0"
         }
       }
-    },
-    "web": {
-      "favicon": "./assets/logo.png"
     },
     "extra": {
       "eas": {
         "projectId": "6f4943ea-7082-4448-b7b0-f437ee0568fd"
       }
-    },
-    "owner": "vmp22",
-    "runtimeVersion": {
-      "policy": "sdkVersion"
     }
+  },
+  "web": {
+    "favicon": "./assets/logo.png"
+  },
+  "extra": {
+    "eas": {
+      "projectId": "6f4943ea-7082-4448-b7b0-f437ee0568fd"
+    }
+  },
+  "owner": "vmp22",
+  "runtimeVersion": {
+    "policy": "sdkVersion"
   }
 }
