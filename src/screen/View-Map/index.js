@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import MapView,{Marker} from 'react-native-maps';
 import { View } from 'react-native';
-import { requestForegroundPermissionsAsync, getCurrentPositionAsync, LocationObject } from 'expo-location';
+import { requestForegroundPermissionsAsync, getCurrentPositionAsync, LocationObject, watchPositionAsync, LocationAccuracy } from 'expo-location';
 import styles from './style'
 import { useNavigation } from '@react-navigation/native';
 import firebase from '../../../firebase'
@@ -26,12 +26,25 @@ export default function ViewMap() {
     requestLocationPermissions();
   },[])
 
+  useEffect(()=>{
+    watchPositionAsync({
+      accuracy:LocationAccuracy.Highest,
+      timeInterval:1000,
+      distanceInterval:1
+    }, (response)=>{
+      console.log(response);
+      setLocation(response)
+  })
+  },[])
+
  return (
    <View style={styles.container}>
 
     {location &&
     <MapView 
       style={styles.map}
+      showsUserLocation={true}
+      loadingEnabled={true}
       initialRegion={{
         latitude:location.coords.latitude,
         longitude:location.coords.longitude,

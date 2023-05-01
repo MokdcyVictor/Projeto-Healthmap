@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { View, Text,Image,TouchableOpacity } from 'react-native';
 import styles from './style';
 import {firebase} from '../../../../firebase';
+import { useNavigation } from "@react-navigation/native";
 
 export default function description({parentToChild}) {
   const [info, setInfo] = useState('');
+  const navigation = useNavigation();
   useEffect(()=>{
     firebase.firestore().collection('ubs').doc(parentToChild.id).get().then((doc)=>{
       if(doc.exists){
@@ -43,7 +45,7 @@ export default function description({parentToChild}) {
         <Text>{info.contato}</Text>
       </View>
     </View>
-    <TouchableOpacity style={styles.buttom}><Text style={styles.textButton}>Rotas</Text></TouchableOpacity>
+    <TouchableOpacity style={styles.buttom} onPress={()=>{navigation.navigate('Rotas')}}><Text style={styles.textButton}>Rotas</Text></TouchableOpacity>
    </View>
   );
 }
