@@ -16,15 +16,13 @@ const styles = StyleSheet.create({
         borderRadius:10,
         height:40,
         width:250,
-        marginTop:20,
+        marginTop:40,
         paddingLeft:20,
 
     },
     hyperlinkStyle:{
-        alignSelf:'flex-end',
         textAlign:"right",
         margin:10,
-        marginRight:30,
         color:"#777777",
     },
     Button:{

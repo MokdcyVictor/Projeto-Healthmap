@@ -11,7 +11,8 @@ import Hospital from './src/screen/View-Hospital';
 import Loading from './src/screen/View-Loading';
 import Tabs from './navigation/tabs';
 import FlatList from './src/screen/View-FlatList';
-import Rotas from './src/screen/View-Rotas'
+import Rotas from './src/screen/View-Rotas';
+import ForgetPassword from './src/screen/View-ForgetPassword';
 
 const Stack = createStackNavigator()
 
@@ -40,6 +41,9 @@ export default function App() {
           headerShown:false
           }}></Stack.Screen>
           <Stack.Screen name="Rotas" component={Rotas} options={{
+          headerShown:false
+          }}></Stack.Screen>
+          <Stack.Screen name="ForgetPassword" component={ForgetPassword} options={{
           headerShown:false
           }}></Stack.Screen>
       </Stack.Navigator>

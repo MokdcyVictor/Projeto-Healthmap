@@ -36,7 +36,7 @@ export default function Form (){
         <View style={styles.context}>
                 <TextInput  value={email} onChangeText={(email)=> setEmail(email)} style={styles.Input} multiline={false} placeholder="Informe seu E-mail"></TextInput>
                 <TextInput  value={password} onChangeText={(password)=> setPassword(password)} style={styles.Input} textContentType='password' autoCorrect={false} secureTextEntry={true} multiline={false} placeholder="Digite sua senha"></TextInput>
-                <Text style={styles.hyperlinkStyle} onPress={() => navigation.navigator('Signup')}> Esqueceu a senha?</Text> 
+                <Text style={styles.hyperlinkStyle} onPress={() =>{navigation.navigate('ForgetPassword')}}> Esqueceu a senha?</Text> 
                 <TouchableOpacity onPress={() => {loginUser(email, password)}}  style={styles.Button}><Text style={styles.textButton}>Entrar</Text></TouchableOpacity>
                 <Text style={styles.textmedio}>ou</Text>
                 <View>
