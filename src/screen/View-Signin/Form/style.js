@@ -11,13 +11,10 @@ const styles = StyleSheet.create({
 
       },
     Input:{
-        borderColor:"#3173F3",
-        borderWidth:2,
-        borderRadius:10,
         height:40,
         width:250,
         marginTop:20,
-        paddingLeft:20,
+        fontSize:15
 
     },
     hyperlinkStyle:{

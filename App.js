@@ -4,7 +4,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Signin from './src/screen/View-Signin';
-import Main from './src/screen/View-Main';
 import Signup from './src/screen/View-Signup';
 import Map from './src/screen/View-Map';
 import Hospital from './src/screen/View-Hospital';

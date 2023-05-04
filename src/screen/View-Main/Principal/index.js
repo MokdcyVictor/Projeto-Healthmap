@@ -7,14 +7,29 @@ import {
   Text,
   ScrollView,
   TextInput,
+  FlatList,
 } from "react-native";
 import styles from "./style";
 import { useNavigation } from "@react-navigation/native";
+import { firebase } from "../../../../firebase";
 
 export default function Principal() {
+  const [ubs, setUbs] = useState([]);
 
   const navigation = useNavigation();
-  
+
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection("ubs")
+      .onSnapshot((query) => {
+        const list = [];
+        query.forEach((doc) => {
+          list.push({ ...doc.data(), id: doc.id });
+        });
+        setUbs(list);
+      });
+  }, []);
   return (
     <View style={styles.background}>
       <View
@@ -34,7 +49,7 @@ export default function Principal() {
           <TouchableOpacity
             style={{ padding: 15, alignItems: "center" }}
             onPress={() => {
-              navigation.navigate("FlatList");
+              navigation.navigate("FlatList",{dado:'ubs'});
             }}
           >
             <Image
@@ -96,84 +111,64 @@ export default function Principal() {
           </TouchableOpacity>
         </View>
       </View>
+
+      {/* end-button */}
+
+      {/* start UBS */}
+
       <View style={{ width: "100%", height: "auto" }}>
         <View style={styles.top}>
           <Text style={{ fontSize: 20 }}>Hospitais</Text>
+          <TouchableOpacity on onPress={()=>{navigation.navigate('FlatList',{dado:'ubs'})}}>
           <Image
             style={{ width: 30, height: 30 }}
             source={require("../image/more.png")}
           ></Image>
+          </TouchableOpacity>
         </View>
-        <ScrollView
-          horizontal={true}
+        <FlatList
+        horizontal={true}
           showsHorizontalScrollIndicator={false}
-          style={{ flexDirection: "row" }}
-        >
-          <View style={styles.conteudo}>
-            <Image
-              style={{
-                width: "100%",
-                height: "70%",
-                borderTopLeftRadius: 15,
-                borderTopRightRadius: 15,
-              }}
-              source={require("../image/hospital.jpg")}
-            ></Image>
-            <View
-              style={{
-                justifyContent: "center",
-                alignItems: "center",
-                width: "100%",
-                height: "30%",
-              }}
-            >
-              <Text style={{ color: "#3173F3" }}>Ver detalhes</Text>
-            </View>
-          </View>
-          <View style={styles.conteudo}>
-            <Image
-              style={{
-                width: "100%",
-                height: "70%",
-                borderTopLeftRadius: 15,
-                borderTopRightRadius: 15,
-              }}
-              source={require("../image/hospital.jpg")}
-            ></Image>
-            <View
-              style={{
-                justifyContent: "center",
-                alignItems: "center",
-                width: "100%",
-                height: "30%",
-              }}
-            >
-              <Text style={{ color: "#3173F3" }}>Ver detalhes</Text>
-            </View>
-          </View>
-          <View style={styles.conteudo}>
-            <Image
-              style={{
-                width: "100%",
-                height: "70%",
-                borderTopLeftRadius: 15,
-                borderTopRightRadius: 15,
-              }}
-              source={require("../image/hospital.jpg")}
-            ></Image>
-            <View
-              style={{
-                justifyContent: "center",
-                alignItems: "center",
-                width: "100%",
-                height: "30%",
-              }}
-            >
-              <Text style={{ color: "#3173F3" }}>Ver detalhes</Text>
-            </View>
-          </View>
-        </ScrollView>
+          data={ubs}
+          renderItem={({ item }) => {
+            return (
+              <View>
+                <View style={styles.conteudo}>
+                  <Image
+                    style={{
+                      width: "100%",
+                      height: "70%",
+                      borderTopLeftRadius: 15,
+                      borderTopRightRadius: 15,
+                    }}
+                    source={require("../image/hospital.jpg")}
+                  ></Image>
+                  <TouchableOpacity
+                  onPress={()=>{
+                    navigation.navigate('Hospital',{id:item.id})
+                  }}
+                    style={{
+                      justifyContent: "center",
+                      alignItems: "center",
+                      width: "100%",
+                      height: "30%",
+                    }}
+                  >
+                    <Text style={{ color: "#3173F3" }}>Ver detalhes</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            );
+          }}
+        ></FlatList>
       </View>
+
+      {/* end-UBS */}
+
+
+      {/* start-pronto socorro */}
+
+
       <View style={{ width: "100%", height: "auto" }}>
         <View style={styles.top}>
           <Text style={{ fontSize: 20 }}>Pronto Socorro</Text>

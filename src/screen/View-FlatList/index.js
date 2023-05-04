@@ -11,14 +11,15 @@ import {
 import { firebase } from "../../../firebase";
 import { useNavigation } from "@react-navigation/native";
 
-export default function ViewFlatList() {
+export default function ViewFlatList({route}) {
+  const dado = route.params?.dado;
   const navigation = useNavigation();
   const [unidade, setUnidade] = useState([]);
 
   useEffect(() => {
     firebase
       .firestore()
-      .collection("ubs")
+      .collection(dado)
       .onSnapshot((query) => {
         const list = [];
         query.forEach((doc) => {
@@ -39,19 +40,19 @@ export default function ViewFlatList() {
       <View
         style={{
           backgroundColor: "#3173F3",
-          width: "100%",
           height: 110,
-          alignItems: "center",
           flexDirection: "row",
-          justifyContent:'space-between'
         }}
       >
-        <TouchableOpacity style={{margin:10}} onPress={()=>{navigation.goBack()}}>
+        <TouchableOpacity style={{margin:10, alignSelf:'flex-start'}} onPress={()=>{navigation.goBack()}}>
           <Image source={require("./img/retornar.png")}></Image>
         </TouchableOpacity>
-        <Text style={{ color: "white", fontSize: 30, fontWeight: "bold",marginRight:'30%'}}>
-          Hospitais
+        <View style={{justifyContent:'flex-end', marginLeft:'25%'}}>
+        <Text style={{ color: "white", fontSize: 30, fontWeight: "bold",textTransform:'uppercase'}}>
+          {dado}
         </Text>
+        </View>
+
       </View>
       <FlatList
         style={{
