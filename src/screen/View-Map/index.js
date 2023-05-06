@@ -19,8 +19,6 @@ export default function ViewMap() {
     if(granted){
       const currentPosition = await getCurrentPositionAsync();
       setLocation(currentPosition);
-
-      console.log(currentPosition)
     }
   }
 
@@ -34,7 +32,6 @@ export default function ViewMap() {
       timeInterval:1000,
       distanceInterval:1
     }, (response)=>{
-      console.log(response);
       setLocation(response)
   })
   },[])

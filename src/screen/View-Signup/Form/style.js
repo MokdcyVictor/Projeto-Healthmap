@@ -4,16 +4,16 @@ const styles = StyleSheet.create({
     context: {
         marginTop:10,
         backgroundColor:"white",
-        width:298,
-        height:400,
+        width:'90%',
+        height:'60%',
         borderRadius:10,
         alignItems:"center",
 
       },
     Input:{
         justifyContent:'center',
-        height:40,
-        width:250,
+        height:50,
+        width:'90%',
         marginTop:20,
         fontSize:15,
 
