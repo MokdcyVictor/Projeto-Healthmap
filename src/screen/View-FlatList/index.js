@@ -41,18 +41,15 @@ export default function ViewFlatList({route}) {
         style={{
           backgroundColor: "#3173F3",
           height: 110,
-          flexDirection: "row",
+          justifyContent:'center'
         }}
       >
         <TouchableOpacity style={{margin:10, alignSelf:'flex-start'}} onPress={()=>{navigation.goBack()}}>
           <Image source={require("./img/retornar.png")}></Image>
         </TouchableOpacity>
-        <View style={{justifyContent:'flex-end', marginLeft:'25%'}}>
-        <Text style={{ color: "white", fontSize: 30, fontWeight: "bold",textTransform:'uppercase'}}>
+        <Text style={{color: "white", fontSize: 30, fontWeight: "bold",textTransform:'uppercase', alignSelf:'center'}}>
           {dado}
         </Text>
-        </View>
-
       </View>
       <FlatList
         style={{
@@ -93,7 +90,7 @@ export default function ViewFlatList({route}) {
                     borderTopRightRadius: 10,
                     resizeMode: "cover",
                   }}
-                  source={require("./img/hospital.jpg")}
+                  source={{uri:item.img}}
                 ></Image>
                 <Text
                   style={{
@@ -103,7 +100,7 @@ export default function ViewFlatList({route}) {
                     padding: 10,
                   }}
                 >
-                  {item.nome}
+                  {item.Nome}
                 </Text>
               </View>
               <View style={{ flexDirection: "row", height: 50 }}>

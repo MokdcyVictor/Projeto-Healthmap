@@ -4,15 +4,38 @@ import { useNavigation } from '@react-navigation/native';
 import styles from './style';
 import {firebase} from '../../../../firebase';
 
+
 export default function Img({parentToChild}) {
   const [info, setInfo] = useState('');
   useEffect(()=>{
-    firebase.firestore().collection('ubs').doc(parentToChild.id).get().then((doc)=>{
+    firebase.firestore().collection('Ubs').doc(parentToChild.id).get().then((doc)=>{
       if(doc.exists){
         setInfo(doc.data())
       }
       else{
-        console.log("No such document")
+      }
+    }).catch((error)=>{
+      console.log("error getting doument:", error)
+    })
+  })
+
+  useEffect(()=>{
+    firebase.firestore().collection('Hospitais').doc(parentToChild.id).get().then((doc)=>{
+      if(doc.exists){
+        setInfo(doc.data())
+      }
+      else{
+      }
+    }).catch((error)=>{
+      console.log("error getting doument:", error)
+    })
+  })
+  useEffect(()=>{
+    firebase.firestore().collection('Pronto Socorro').doc(parentToChild.id).get().then((doc)=>{
+      if(doc.exists){
+        setInfo(doc.data())
+      }
+      else{
       }
     }).catch((error)=>{
       console.log("error getting doument:", error)
@@ -22,13 +45,13 @@ export default function Img({parentToChild}) {
 
   const navigation = useNavigation();
 
-  const img = parentToChild.img
+  const img = info.img
 
  return (
    <View style={styles.background}>
       <Image style={styles.img} source={{uri:img}}></Image>
-      <TouchableOpacity onPress={()=>{navigation.goBack()}} ><Image style={styles.return} source={require('./retornar.png')}></Image></TouchableOpacity>
-      <Text style={{color:'white', padding:6, fontSize:30, fontWeight:'bold',alignSelf:'center',justifyContent:'flex-end'}}>{info.nome}</Text>
+      <TouchableOpacity onPress={()=>{navigation.goBack()}} ><Image style={styles.return} source={require('../Image/retornar.png')}></Image></TouchableOpacity>
+      <Text style={{color:'white', padding:6, fontSize:30, fontWeight:'bold',alignSelf:'center',justifyContent:'flex-end'}}>{info.Nome}</Text>
    </View>
   );
 }

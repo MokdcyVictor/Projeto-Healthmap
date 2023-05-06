@@ -11,7 +11,7 @@ export default function Tabs() {
     const Tab = createBottomTabNavigator()
 
  return (
-    <Tab.Navigator initialRouteName='Menu' screenOptions={{
+    <Tab.Navigator backBehavior='initialRoute' initialRouteName='Menu' screenOptions={{
         tabBarShowLabel: false,
         tabBarStyle:{
                 position:'absolute',

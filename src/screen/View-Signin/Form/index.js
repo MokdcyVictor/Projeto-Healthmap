@@ -14,14 +14,15 @@ import { firebase } from "../../../../firebase";
 import Tabs from "../../../../navigation/tabs";
 
 export default function Form() {
-  const [isPasswordSecure, setIsPasswordSecure] = useState(false);
+  const [isPasswordSecure, setIsPasswordSecure] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [erro, setErro] = useState(false)
 
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        navigation.navigate("Tabs");
+        navigation.replace("Tabs");
       }
     });
 
@@ -33,9 +34,9 @@ export default function Form() {
       await firebase
         .auth()
         .signInWithEmailAndPassword(email.trim(), password.trim());
-      navigation.navigate("Tabs");
+      navigation.replace("Tabs");
     } catch (error) {
-      alert(error.message);
+      setErro(true)
     }
   };
 
@@ -44,22 +45,34 @@ export default function Form() {
   return (
     <View style={styles.context}>
       <TextInput
+        left={<TextInput.Icon icon={"account"} iconColor={erro? 'red': '#3173F3'} />}
+        activeOutlineColor='#3173F3'
+        outlineColor='#3173F3'
         mode="outlined"
         value={email}
         onChangeText={(email) => setEmail(email)}
-        style={styles.Input}
+        style={[styles.Input]}
         autoComplete="email"
         multiline={false}
         placeholder="Informe seu E-mail"
+        placeholderTextColor={erro? 'red': '#777777'}
       ></TextInput>
       <TextInput
-      right={
-        <TextInput.Icon
-        name={() => <Image source={require('../image/invisible.png')}></Image>} // where <Icon /> is any component from vector-icons or anything else
-        onPress={() => { isPasswordSecure ? setIsPasswordSecure(false) : setIsPasswordSecure(true) }}
-      />
-      }
-      mode="outlined"
+        left={<TextInput.Icon icon={"lock"} iconColor={erro? 'red': '#3173F3'} />}
+        right={
+          <TextInput.Icon
+            icon={isPasswordSecure ? "eye" : "eye-off"}
+            iconColor={'#3173F3'}
+            onPress={() => {
+              isPasswordSecure
+                ? setIsPasswordSecure(false)
+                : setIsPasswordSecure(true);
+            }}
+          />
+        }
+        activeOutlineColor="#3173F3"
+        outlineColor="#3173F3"
+        mode="outlined"
         value={password}
         onChangeText={(password) => setPassword(password)}
         style={styles.Input}
@@ -68,6 +81,7 @@ export default function Form() {
         secureTextEntry={isPasswordSecure}
         multiline={false}
         placeholder="Digite sua senha"
+        placeholderTextColor={erro? 'red': '#77777'}
       ></TextInput>
       <Text
         style={styles.hyperlinkStyle}

@@ -11,18 +11,18 @@ const styles = StyleSheet.create({
 
       },
     Input:{
-        borderColor:"#3173F3",
-        borderWidth:2,
-        borderRadius:10,
+        justifyContent:'center',
         height:40,
         width:250,
         marginTop:20,
-        paddingLeft:20,
+        fontSize:15,
 
     },
     hyperlinkStyle:{
+        alignSelf:'flex-end',
         textAlign:"right",
         margin:10,
+        marginRight:30,
         color:"#777777",
     },
     Button:{

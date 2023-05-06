@@ -11,6 +11,6 @@ export default function ViewLoading() {
 
 
  return (
-    <Lottie source={require('./splash.json')} autoPlay loop={false} speed={0.7} onAnimationFinish={()=> navigation.navigate("Signin") } />
+    <Lottie source={require('./splash.json')} autoPlay loop={false} speed={0.7} onAnimationFinish={()=> navigation.replace("Signin") } />
  );
 }

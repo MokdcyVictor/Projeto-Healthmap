@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import MapView,{Marker} from 'react-native-maps';
-import { View } from 'react-native';
+import { View,Image } from 'react-native';
 import { requestForegroundPermissionsAsync, getCurrentPositionAsync, LocationObject, watchPositionAsync, LocationAccuracy } from 'expo-location';
 import styles from './style'
 import { useNavigation } from '@react-navigation/native';
-import firebase from '../../../firebase'
+import {firebase} from '../../../firebase'
+import { FlatList } from 'react-native-gesture-handler';
 
 
 export default function ViewMap() {
+  const [unidades, setUnidades] = useState([])
   const navigation = useNavigation();
   const [location, setLocation] = useState(null);
 
@@ -37,6 +39,19 @@ export default function ViewMap() {
   })
   },[])
 
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection('Hospitais')
+      .onSnapshot((query) => {
+        const list = [];
+        query.forEach((doc) => {
+          list.push({ ...doc.data(), id: doc.id });
+        });
+        setUnidades(list);
+      });
+  }, []);
+
  return (
    <View style={styles.container}>
 
@@ -52,14 +67,25 @@ export default function ViewMap() {
         longitudeDelta:0.005,
       }}
     >
-       <Marker  pinColor='blue' coordinate={{
-        latitude: -3.101582340298086,
-        longitude:  -60.01413263166075,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421}} title='Marker'
-        onPress={()=>{
-          navigation.navigate('Hospital', {id:"99aurx0psKEZu9Y3IP1z", img:'https://firebasestorage.googleapis.com/v0/b/projeto-healthmap.appspot.com/o/ubs%2Fhospital.jpg?alt=media&token=0f5e7154-0a46-4408-828c-9408ba0a9501'})
-        }}></Marker> 
+      {unidades.map((unidades) =>{
+        return(       
+        <Marker  
+        key={unidades.id}
+        pinColor='blue' coordinate={{
+          latitude: unidades.Latitude,
+          longitude:  unidades.Longitude,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421}} title={unidades.Nome}
+          onPress={()=>{
+            navigation.navigate('Hospital', {id:unidades.id, img:unidades.img})
+          }}>
+            <View style={{backgroundColor:'blue', width:50, height:50,borderRadius:1000,borderWidth:2, borderColor:'#3173F3'}}>
+              <Image style={{width:'100%', height:'100%',borderRadius:1000,}} source={{uri:unidades.img}}></Image>
+            </View>
+          </Marker> 
+          )
+      })}
+
     </MapView>
     }
    </View>

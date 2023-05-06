@@ -6,14 +6,30 @@ import { requestForegroundPermissionsAsync, getCurrentPositionAsync, LocationObj
 import styles from './style';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import {firebase} from '../../../firebase'
 
+export default function Rotas({route}) {
 
-export default function Rotas() {
   const navigation = useNavigation();
     const [location, setLocation] = useState(null);
     const [distance, setDistance] = useState(null);
-    const [duration, setDurantion] =  useState(null)
+    const [duration, setDurantion] =  useState(null);
+    const [info, setInfo] = useState([]);
+
+    const id = route.params?.id
+    console.log(info)
   
+    useEffect(()=>{
+      firebase.firestore().collection("Hospitais").doc(id).get().then((doc)=>{
+        if(doc.exists){
+          setInfo(doc.data())
+        }
+        else{
+        }
+      }).catch((error)=>{
+        console.log("error getting doument:", error)
+      })
+    })
     async function requestLocationPermissions() {
       const {granted} =  await requestForegroundPermissionsAsync();
   
@@ -61,8 +77,8 @@ export default function Rotas() {
               longitude: location.coords.longitude   
             }}
             destination={{
-                latitude: -3.101582340298086,
-                longitude:  -60.01413263166075,
+                latitude: info.Latitude,
+                longitude:  info.Longitude,
             }}
             onReady={result =>{
               setDistance(Math.floor(result.distance));
@@ -72,8 +88,8 @@ export default function Rotas() {
             strokeWidth={3}
             />
           <Marker  pinColor='blue' coordinate={{
-        latitude: -3.101582340298086,
-        longitude:  -60.01413263166075,
+        latitude: info.Latitude,
+        longitude:  info.Longitude,
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421}} title='Marker'
         onPress={()=>{
