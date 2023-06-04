@@ -93,7 +93,7 @@ export default function Rotas({ route }) {
               setDistance(Math.floor(result.distance));
               setDurantion(Math.floor(result.duration));
             }}
-            apikey={"AIzaSyDbVVzpYNMdkf03FIIBlreVsRXsRMrmMuo"}
+            apikey={"AIzaSyCJaHdU1kC3CwIPzDCw75qrhtO8KB0AgE0"}
             strokeWidth={3}
           />
 

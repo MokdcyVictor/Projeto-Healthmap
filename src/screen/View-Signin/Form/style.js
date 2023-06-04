@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     context: {
-        marginTop:100,
+        marginTop:10,
         backgroundColor:"white",
         width:'90%',
         height:'50%',

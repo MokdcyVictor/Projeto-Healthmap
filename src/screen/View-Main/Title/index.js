@@ -20,6 +20,7 @@ const [name, setName] = useState('')
 
  return (
    <View style={styles.background}>
+    
     <Image style={styles.perfil} source={require('../image/perfil.png')}></Image>
       <Text style={styles.text}>olá, {name.username}!</Text>
     <Image style={styles.logo} source={require('../image/logo.png')}></Image>

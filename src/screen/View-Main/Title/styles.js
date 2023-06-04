@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import { BorderlessButton } from "react-native-gesture-handler";
 
 const styles = StyleSheet.create({
     background:{
@@ -8,6 +7,7 @@ const styles = StyleSheet.create({
         width:'100%',
         height:180,
         marginTop:20,
+        justifyContent:'space-between'
     },
     text:{
         fontSize:20,
@@ -28,8 +28,8 @@ const styles = StyleSheet.create({
     logo:{
         justifyContent:'flex-start',
         alignItems:'flex-end',
-        width:'40%',
-        height:'30%',
+        width:50,
+        height:50,
     }
 });
 

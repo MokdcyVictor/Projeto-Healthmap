@@ -27,7 +27,7 @@ export default function ViewUser() {
  return (
    <View style={styles.container}>
     <View style={{width:'100%', height:'40%',alignItems:'flex-end'}}>
-      <Image style={{width:100,height:50,margin:20}} source={require('./image/logo.png')}></Image>
+      <Image style={{width:100,height:100,margin:20}} source={require('./image/logo.png')}></Image>
     </View>
     <View style={{backgroundColor:'white', width:'100%', height:'60%', borderTopLeftRadius:10, borderTopRightRadius:10, alignItems:'center',}}>
       <Image style={{width:150,height:150,marginTop:-100}} source={require('./image/avatar.png')}></Image>
