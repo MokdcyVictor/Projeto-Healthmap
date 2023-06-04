@@ -15,7 +15,6 @@ export default function Form() {
 
   const [erro, setErro] = useState(false)
 
-  if (password === confpassword) {
     const registerUser = async (email, password, username) => {
       firebase
         .auth()
@@ -39,9 +38,7 @@ export default function Form() {
           setErro(true)
         });
     };
-  }else{
-    setErro(true)
-  }
+
 
   
 

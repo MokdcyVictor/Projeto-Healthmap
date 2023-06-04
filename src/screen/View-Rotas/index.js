@@ -96,6 +96,10 @@ export default function Rotas({ route }) {
             apikey={"AIzaSyCJaHdU1kC3CwIPzDCw75qrhtO8KB0AgE0"}
             strokeWidth={3}
           />
+          <Marker
+            coordinate={{latitude: info.Latitude, longitude: info.Longitude}}
+            pinColor="blue"
+          ></Marker>
 
         </MapView>
       )}

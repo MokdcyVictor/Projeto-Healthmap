@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
         marginTop:10,
         backgroundColor:"white",
         width:'90%',
-        height:'60%',
+        height:'65%',
         borderRadius:10,
         alignItems:"center",
 
