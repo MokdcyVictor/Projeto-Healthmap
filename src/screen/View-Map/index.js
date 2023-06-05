@@ -39,7 +39,7 @@ export default function ViewMap() {
   useEffect(() => {
     firebase
       .firestore()
-      .collection('Hospitais')
+      .collection('Unidades')
       .onSnapshot((query) => {
         const list = [];
         query.forEach((doc) => {

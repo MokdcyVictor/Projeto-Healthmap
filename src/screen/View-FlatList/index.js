@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { firebase } from "../../../firebase";
 import { useNavigation } from "@react-navigation/native";
+import { Info } from "react-native-feather";
 
 export default function ViewFlatList({route}) {
   const dado = route.params?.dado;
@@ -19,13 +20,14 @@ export default function ViewFlatList({route}) {
   useEffect(() => {
     firebase
       .firestore()
-      .collection(dado)
-      .onSnapshot((query) => {
+      .collection("Unidades").where("tipo", "==", dado)
+      .get().then((query) => {
         const list = [];
         query.forEach((doc) => {
           list.push({ ...doc.data(), id: doc.id });
         });
         setUnidade(list);
+        console.log(unidade.id);
       });
   }, []);
 
@@ -106,7 +108,7 @@ export default function ViewFlatList({route}) {
               <View style={{ flexDirection: "row", height: 50 }}>
                 <TouchableOpacity
                 onPress={()=>{navigation.navigate('Hospital', {
-                  id:item.id,
+                  id:item.id,img: item.img
                 })}}
                   style={{
                     width: "50%",

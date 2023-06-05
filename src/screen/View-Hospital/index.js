@@ -21,6 +21,8 @@ export default function ViewHospital({route}) {
     
   }
 
+  console.log(state)
+
   return ( 
     <View style={styles.background}>
         <Img parentToChild={state}></Img>

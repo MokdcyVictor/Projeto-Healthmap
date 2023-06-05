@@ -8,7 +8,7 @@ import {firebase} from '../../../../firebase';
 export default function Img({parentToChild}) {
   const [info, setInfo] = useState('');
   useEffect(()=>{
-    firebase.firestore().collection('Ubs').doc(parentToChild.id).get().then((doc)=>{
+    firebase.firestore().collection('Unidades').doc(parentToChild.id).get().then((doc)=>{
       if(doc.exists){
         setInfo(doc.data())
       }

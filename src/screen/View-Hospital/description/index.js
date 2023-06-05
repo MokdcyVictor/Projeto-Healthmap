@@ -11,7 +11,7 @@ export default function description({parentToChild}) {
   const service = parentToChild.estado;
 
   useEffect(()=>{
-    firebase.firestore().collection("Ubs").doc(id).get().then((doc)=>{
+    firebase.firestore().collection("Unidades").doc(id).get().then((doc)=>{
       if(doc.exists){
         setInfo(doc.data())
       }
@@ -22,29 +22,6 @@ export default function description({parentToChild}) {
     })
   })
 
-  useEffect(()=>{
-    firebase.firestore().collection("Hospitais").doc(id).get().then((doc)=>{
-      if(doc.exists){
-        setInfo(doc.data())
-      }
-      else{
-      }
-    }).catch((error)=>{
-      console.log("error getting doument:", error)
-    })
-  })
-
-  useEffect(()=>{
-    firebase.firestore().collection("Pronto Socorro").doc(id).get().then((doc)=>{
-      if(doc.exists){
-        setInfo(doc.data())
-      }
-      else{
-      }
-    }).catch((error)=>{
-      console.log("error getting doument:", error)
-    })
-  })
 
  return (
    <View style={styles.background}>

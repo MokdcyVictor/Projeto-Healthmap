@@ -26,7 +26,7 @@ export default function Rotas({ route }) {
   useEffect(() => {
     firebase
       .firestore()
-      .collection("Ubs")
+      .collection("Unidades")
       .doc(id)
       .get()
       .then((doc) => {

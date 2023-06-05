@@ -23,8 +23,8 @@ export default function Principal({ route }) {
   useEffect(() => {
     firebase
       .firestore()
-      .collection("Hospitais")
-      .onSnapshot((query) => {
+      .collection("Unidades").where("tipo", "==", "Hospitais")
+      .get().then((query) => {
         const list = [];
         query.forEach((doc) => {
           list.push({ ...doc.data(), id: doc.id });
@@ -36,8 +36,8 @@ export default function Principal({ route }) {
   useEffect(() => {
     firebase
       .firestore()
-      .collection("Pronto Socorro")
-      .onSnapshot((query) => {
+      .collection("Unidades").where("tipo", "==", "Pronto Socorro")
+      .get().then((query) => {
         const list = [];
         query.forEach((doc) => {
           list.push({ ...doc.data(), id: doc.id });
@@ -48,15 +48,15 @@ export default function Principal({ route }) {
 
   useEffect(() => {
     firebase
-      .firestore()
-      .collection("Ubs")
-      .onSnapshot((query) => {
-        const list = [];
-        query.forEach((doc) => {
-          list.push({ ...doc.data(), id: doc.id });
-        });
-        setUbs(list);
+    .firestore()
+    .collection("Unidades").where("tipo", "==", "Ubs")
+    .get().then((query) => {
+      const list = [];
+      query.forEach((doc) => {
+        list.push({ ...doc.data(), id: doc.id });
       });
+      setUbs(list);
+    });
   }, []);
 
   return (
@@ -195,10 +195,11 @@ export default function Principal({ route }) {
           </TouchableOpacity>
         </View>
         <FlatList
-          horizontal={true}
+          horizontal={true}Y
           showsHorizontalScrollIndicator={false}
           data={hospitais}
           renderItem={({ item }) => {
+            console.log(hospitais.id);
             return (
               <View>
                 <View style={styles.conteudo}>
@@ -213,7 +214,7 @@ export default function Principal({ route }) {
                   ></Image>
                   <TouchableOpacity
                     onPress={() => {
-                      navigation.navigate("Hospital", { id: item.id });
+                      navigation.navigate("Hospital", { id: item.id});
                     }}
                     style={{
                       justifyContent: "center",

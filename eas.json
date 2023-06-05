@@ -1,21 +1,18 @@
 {
-  "cli": {
-    "version": ">= 2.8.0"
-  },
   "build": {
-    "staging": {
-      "distribution": "internal",
+    "preview": {
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "preview2": {
       "android": {
         "gradleCommand": ":app:assembleRelease"
-      },
-      "channel": "staging"
+      }
     },
-    "production": {
-      "channel": "production"
+    "preview3": {
+      "developmentClient": true
     },
-    "preview": {
-      "channel": "staging",
-      "distribution": "internal"
-    }
+    "production": {}
   }
 }

@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     image:{
-       width:'20%',
+       width:'30%',
        height:'20%',
        marginTop:60,
     }
