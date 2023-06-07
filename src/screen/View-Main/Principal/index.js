@@ -199,7 +199,6 @@ export default function Principal({ route }) {
           showsHorizontalScrollIndicator={false}
           data={hospitais}
           renderItem={({ item }) => {
-            console.log(hospitais.id);
             return (
               <View>
                 <View style={styles.conteudo}>

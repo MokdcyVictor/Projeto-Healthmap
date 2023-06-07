@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     Input:{
         height:50,
         width:'90%',
-        marginTop:40,
+        marginTop:30,
         fontSize:15
 
     },

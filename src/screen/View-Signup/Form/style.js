@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         height:50,
         width:'90%',
-        marginTop:20,
+        marginTop:10,
         fontSize:15,
 
     },

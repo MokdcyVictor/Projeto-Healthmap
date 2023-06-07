@@ -19,15 +19,7 @@ export default function Form() {
   const [password, setPassword] = useState("");
   const [erro, setErro] = useState(false)
 
-  useEffect(() => {
-    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        navigation.replace("Tabs");
-      }
-    });
 
-    return unsubscribe;
-  }, []);
 
   const loginUser = async (email, password) => {
     try {

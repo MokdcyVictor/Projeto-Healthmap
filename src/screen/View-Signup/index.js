@@ -1,15 +1,19 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import styles from './style';
-import Form from './Form/index'
-import Title from './Title/index'
+import React from "react";
+import { View, Text, ScrollView, Dimensions } from "react-native";
+import styles from "./style";
+import Form from "./Form/index";
+import Title from "./Title/index";
 
-export default function Signup({navigation}) {
- return (
+export default function Signup({ navigation }) {
+  return (
     <View style={styles.linearGradient}>
-    <Title/>
-    <Form/>
-    <Text style={styles.text} onPress={() => navigation.navigate('Signin') }>Não tem uma conta? Cadastre-se</Text>
+      <ScrollView contentContainerStyle={{flexGrow : 1, justifyContent : 'center', alignItems:'center'}} style={{height : Dimensions.get('window').height,}}>
+        <Title />
+        <Form />
+        <Text style={styles.text} onPress={() => navigation.navigate("Signin")}>
+          Não tem uma conta? Cadastre-se
+        </Text>
+      </ScrollView>
     </View>
   );
 }

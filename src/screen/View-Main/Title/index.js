@@ -3,7 +3,7 @@ import { View, Text, Image } from 'react-native';
 import styles from './styles'
 import {firebase} from '../../../../firebase'
 
-export default function Title() {
+export default function Title({routes}) {
 const [name, setName] = useState('')
 
   useEffect(()=>{
