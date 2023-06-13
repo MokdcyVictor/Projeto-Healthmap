@@ -11,7 +11,7 @@ export default function Signup({ navigation }) {
         <Title />
         <Form />
         <Text style={styles.text} onPress={() => navigation.navigate("Signin")}>
-          Não tem uma conta? Cadastre-se
+        Já tem uma conta? Entre aqui
         </Text>
       </ScrollView>
     </View>

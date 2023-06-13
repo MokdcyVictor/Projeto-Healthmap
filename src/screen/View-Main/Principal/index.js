@@ -152,7 +152,7 @@ export default function Principal({ route }) {
           <TouchableOpacity
             style={{ padding: 15, alignItems: "center" }}
             onPress={() => {
-              navigation.navigate("FlatList", { dado: "Nutrição" });
+              navigation.navigate("FlatList", { dado: "Nutricao" });
             }}
           >
             <Image

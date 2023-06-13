@@ -34,12 +34,38 @@ export default function ViewUser() {
   });
 
   function exit() {
-    firebase.auth().signOut().then(() => {
-      navigation.replace('Signin')
-      // Sign-out successful.
-    }).catch((error) => {
-      // An error happened.
-    });
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        navigation.reset({
+          index: 0,
+          routes: [{ name: "Signin" }],
+        });
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  }
+
+  function desativar() {
+    firebase
+      .firestore()
+      .collection("users")
+      .doc(firebase.auth().currentUser.uid)
+      .delete()
+      .then(() => {
+        firebase
+          .auth()
+          .currentUser.delete()
+          .then(navigation.navigate("Signin"))
+          .catch((error) => {
+            console.log(error);
+          });
+      })
+      .catch((error) => {
+        console.error("Error removing document: ", error);
+      });
   }
 
   return (
@@ -74,7 +100,9 @@ export default function ViewUser() {
           ></Image>
           <Text style={{ marginTop: 20, fontSize: 20 }}>{name.username}</Text>
           <TouchableOpacity
-          onPress={()=>{navigation.navigate("UserConfig")}}
+            onPress={() => {
+              navigation.navigate("UserConfig");
+            }}
             style={{
               flexDirection: "row",
               alignItems: "center",
@@ -107,7 +135,9 @@ export default function ViewUser() {
             ></Image>
             <View>
               <Text style={{ fontSize: 15 }}>Alterar a Senha</Text>
-              <Text style={{ fontSize: 13, color: "gray" }}>Altere a sua senha a qualquer momento.</Text>
+              <Text style={{ fontSize: 13, color: "gray" }}>
+                Altere a sua senha a qualquer momento.
+              </Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity
@@ -116,6 +146,9 @@ export default function ViewUser() {
               alignItems: "center",
               marginTop: 20,
               width: "90%",
+            }}
+            onPress={() => {
+              desativar();
             }}
           >
             <Image
@@ -129,11 +162,15 @@ export default function ViewUser() {
             ></Image>
             <View>
               <Text style={{ fontSize: 15 }}>Desativar a Conta</Text>
-              <Text style={{ fontSize: 13, color: "gray" }}>Desative sua conta a qualquer momento.</Text>
+              <Text style={{ fontSize: 13, color: "gray" }}>
+                Desative sua conta a qualquer momento.
+              </Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity
-          onPress={()=>{exit()}}
+            onPress={() => {
+              exit();
+            }}
             style={{
               flexDirection: "row",
               alignItems: "center",

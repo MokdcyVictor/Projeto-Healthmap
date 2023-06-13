@@ -92,7 +92,6 @@ export default function Form() {
       >
         <Text style={styles.textButton}>Entrar</Text>
       </TouchableOpacity>
-      <Text style={styles.textmedio}>ou</Text>
       <View></View>
     </View>
   );
