@@ -11,14 +11,13 @@ import { TextInput } from "react-native-paper";
 import styles from "./style";
 import { useNavigation } from "@react-navigation/native";
 import { firebase } from "../../../../firebase";
-import Tabs from "../../../../navigation/tabs";
 
 export default function Form() {
   const [isPasswordSecure, setIsPasswordSecure] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [erro, setErro] = useState(false)
-
+  const [erro, setErro] = useState(false);
+  const [user, setUser] = useState([]);
 
 
   const loginUser = async (email, password) => {

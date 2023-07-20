@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     context: {
-        marginTop:10,
+        paddingTop:StatusBar.currentHeight,
         backgroundColor:"white",
         width:'90%',
         height:'65%',
